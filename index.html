@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link
       rel="icon"
@@ -16,5 +15,29 @@
     <script defer src="script.js"></script>
     <title>Todo app</title>
   </head>
-  <body></body>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1 class="title">TODO</h1>
+        <img class="icon" src="./images/icon-moon.svg" />
+      </header>
+      <form class="search-form">
+        <div class="search-cont">
+          <div class="search-circle"></div>
+          <input
+            class="input-search"
+            type="text"
+            placeholder="Create a new todo..."
+          />
+        </div>
+      </form>
+      <div class="todo-cont">
+        <ul class="todo-list"></ul>
+        <div class="todo-info-cont">
+          <p class="item-length-text">0 items left</p>
+          <p class="clear-text">Clear Completed</p>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>

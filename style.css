@@ -33,4 +33,87 @@ html {
 
 body {
   font-family: "Josefin Sans", sans-serif;
+  background-image: url("./images/bg-mobile-light.jpg");
+  background-repeat: no-repeat;
+  background-color: var(--body-bg-clr);
+}
+
+body.dark-theme {
+  background-image: url("./images/bg-mobile-dark.jpg");
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 4.5rem;
+}
+
+/* HEADER SECT */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 3.2rem;
+  color: #ffffff;
+  letter-spacing: 1rem;
+}
+
+.icon {
+  width: 2rem;
+  cursor: pointer;
+}
+
+/* SEARCH SECT */
+
+.search-cont {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  background-color: var(--form-bg-clr);
+}
+
+.search-circle {
+  width: 2rem;
+  height: 2rem;
+  border: 1.5px solid var(--border-clr);
+  border-radius: 50%;
+}
+
+.input-search {
+  font-family: "Josefin sans", sans-serif;
+  font-size: 1.2rem;
+  color: var(--form-par-clr);
+  background-color: var(--form-bg-clr);
+  border: none;
+  outline: none;
+}
+.input-search:focus {
+  caret-color: var(--bright-blue);
+}
+
+/* TODO SEC */
+
+.todo-cont {
+  background-color: var(--form-bg-clr);
+  border-radius: 0.5rem;
+}
+
+.todo-info-cont {
+  display: flex;
+  padding: 1.5rem;
+  justify-content: space-between;
+  box-shadow: 0.3rem 1rem 3.5rem rgba(22, 23, 34, 0.212);
+}
+
+.todo-info-cont p {
+  color: var(--form-subpar-clr);
+  font-size: 1.2rem;
 }
