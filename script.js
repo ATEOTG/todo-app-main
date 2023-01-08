@@ -17,6 +17,8 @@ icon.addEventListener("click", function () {
 });
 
 form.addEventListener("submit", addTodo);
+todoList.addEventListener("mouseover", crossAppear);
+todoList.addEventListener("mouseout", crossDissappear);
 todoList.addEventListener("click", itemHandler);
 clearCompleted.addEventListener("click", clearItems);
 options.forEach((el) => el.addEventListener("click", optionSelected));
@@ -26,11 +28,11 @@ function addTodo(e) {
   const todoText = textVal.value;
 
   const html = `<li class="todo-item">
-  <div>
+  <div class="todo-text-cont">
     <div class="circle">
       <img class="check" src="./images/icon-check.svg" />
     </div>
-    <p>${todoText}</p>
+    <p class="todo-text">${todoText}</p>
   </div>
 
   <img class="cross" src="./images/icon-cross.svg" />
@@ -43,7 +45,11 @@ function addTodo(e) {
 
 function itemHandler(e) {
   const target = e.target;
-  if (target.matches(".circle")) {
+  if (
+    target.matches(".circle") ||
+    target.matches(".todo-text") ||
+    target.matches(".todo-text-cont")
+  ) {
     const todoItem = target.closest(".todo-item");
     todoItem.classList.toggle("completed");
     todoItem.classList.contains("completed") ? decreaseItem() : increaseItem();
@@ -72,6 +78,18 @@ function clearItems() {
   for (const item of todoItems) {
     if (item.classList.contains("completed")) item.remove();
   }
+}
+
+function crossAppear(e) {
+  const target = e.target.closest(".todo-item");
+  const cross = target.childNodes[3];
+  cross.style.opacity = 1;
+}
+
+function crossDissappear(e) {
+  const target = e.target.closest(".todo-item");
+  const cross = target.childNodes[3];
+  cross.style.opacity = 0;
 }
 
 function optionSelected(e) {

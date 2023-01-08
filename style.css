@@ -35,7 +35,9 @@ body {
   font-family: "Josefin Sans", sans-serif;
   background-image: url("./images/bg-mobile-light.jpg");
   background-repeat: no-repeat;
+  background-size: contain;
   background-color: var(--body-bg-clr);
+  height: 100vh;
 }
 
 body.dark-theme {
@@ -46,6 +48,27 @@ body.dark-theme {
   width: 90%;
   margin: 0 auto;
   margin-top: 4.5rem;
+}
+
+.filter-cont-desk {
+  display: none;
+}
+
+.filter-cont-desk div {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.filter-cont-desk div p {
+  color: var(--form-subpar-clr);
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filter-cont-desk div p:hover {
+  color: var(--form-par-clr);
 }
 
 /* HEADER SECT */
@@ -137,6 +160,7 @@ body.dark-theme {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 2rem;
   height: 2rem;
   border: 1.5px solid var(--border-clr);
@@ -180,10 +204,11 @@ body.dark-theme {
   padding: 1.5rem;
 }
 
-.todo-item div {
+.todo-text-cont {
   display: flex;
   gap: 1rem;
   align-items: center;
+  width: 70%;
 }
 
 .todo-item div .circle {
@@ -240,4 +265,100 @@ body.dark-theme {
 
 #complete.selected {
   color: var(--bright-blue);
+}
+
+/* MEDIA CHANGE SEC */
+
+@media (min-width: 56.25em) {
+  body {
+    background-image: url("./images/bg-desktop-light.jpg");
+  }
+
+  body.dark-theme {
+    background-image: url("./images/bg-desktop-dark.jpg");
+  }
+
+  .container {
+    margin-top: 7rem;
+    width: 45%;
+    max-width: 54rem;
+  }
+  .title {
+    font-size: 4rem;
+  }
+
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .search-cont {
+    padding: 2rem;
+  }
+
+  .search-circle {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .input-search {
+    font-size: 1.8rem;
+  }
+
+  .todo-info-cont p {
+    font-size: 1.4rem;
+  }
+
+  .todo-item {
+    padding: 2rem;
+  }
+
+  .todo-item.completed .circle .check {
+    width: 9px;
+    height: 6px;
+  }
+
+  .todo-item p {
+    font-size: 1.8rem;
+  }
+
+  .todo-item img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .todo-text-cont {
+    width: 70%;
+    cursor: pointer;
+    gap: 2rem;
+  }
+
+  .circle {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .cross {
+    opacity: 0;
+  }
+
+  .todo-info-cont {
+    padding: 2rem;
+  }
+
+  .filter-cont {
+    display: none;
+  }
+
+  .filter-cont-desk {
+    display: block;
+  }
+
+  .clear-text {
+    cursor: pointer;
+  }
+
+  .clear-text:hover {
+    color: var(--form-par-clr);
+  }
 }
