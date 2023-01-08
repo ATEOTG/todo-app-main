@@ -175,13 +175,13 @@ body.dark-theme {
   cursor: pointer;
 }
 
-.todo-item.completed .circle {
+div .todo-item.completed .circle {
   background: linear-gradient(150deg, #57ddff, #c058f3);
   background-clip: padding-box;
-  border: 1.5px solid transparent;
+  border: 0px solid transparent;
 }
 
-.todo-item.completed .circle::before {
+div .todo-item.completed .circle::before {
   content: "";
   position: absolute;
   top: 0;
@@ -213,9 +213,6 @@ body.dark-theme {
 
 .todo-item div .circle {
   cursor: pointer;
-}
-
-.todo-item div .circle:hover {
 }
 
 .todo-item p {
@@ -294,6 +291,7 @@ body.dark-theme {
 
   .search-cont {
     padding: 2rem;
+    margin-bottom: 3rem;
   }
 
   .search-circle {
@@ -332,10 +330,16 @@ body.dark-theme {
     cursor: pointer;
     gap: 2rem;
   }
-
   .circle {
     width: 2.4rem;
     height: 2.4rem;
+  }
+
+  .todo-text-cont:hover .circle {
+    background: linear-gradient(white, white) padding-box,
+      linear-gradient(#57ddff, #c058f3) border-box;
+    border-radius: 50rem;
+    border: 1px solid transparent;
   }
 
   .cross {
