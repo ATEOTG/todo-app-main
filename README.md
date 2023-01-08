@@ -2,7 +2,7 @@
 
 A Todo App with theme changes and filtering options!
 
-Live Site: 
+Live Site: https://ateotg.github.io/todo-app-main/
 
 ## Screenshot
 
