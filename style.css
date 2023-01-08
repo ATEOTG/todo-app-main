@@ -229,3 +229,15 @@ body.dark-theme {
   font-size: 1.4rem;
   font-weight: 700;
 }
+
+#all.selected {
+  color: var(--bright-blue);
+}
+
+#active.selected {
+  color: var(--bright-blue);
+}
+
+#complete.selected {
+  color: var(--bright-blue);
+}
