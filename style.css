@@ -5,7 +5,8 @@
   --chck-bg-first: #57ddff;
   --chck-bg-second: #c058f3;
   --body-bg-clr: #fafafa;
-  --form-bg-clr: #ffffff;
+  --form-bg-clr: rgb(255, 255, 255);
+  --form-bg-clr-lg: 255, 255, 255;
   --border-clr: #e4e5f1;
   --cross-clr: #d2d3db;
   --form-subpar-clr: #9394a5;
@@ -14,7 +15,8 @@
 
 .dark-theme {
   --body-bg-clr: #161722;
-  --form-bg-clr: #25273d;
+  --form-bg-clr: rgb(37, 39, 61);
+  --form-bg-clr-lg: 37, 39, 61;
   --cross-clr: #4d5066;
   --border-clr: #393a4c;
   --form-subpar-clr: #777a92;
@@ -336,7 +338,11 @@ div .todo-item.completed .circle::before {
   }
 
   .todo-text-cont:hover .circle {
-    background: linear-gradient(white, white) padding-box,
+    background: linear-gradient(
+          rgb(var(--form-bg-clr-lg)),
+          rgb(var(--form-bg-clr-lg))
+        )
+        padding-box,
       linear-gradient(#57ddff, #c058f3) border-box;
     border-radius: 50rem;
     border: 1px solid transparent;
