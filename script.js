@@ -26,16 +26,17 @@ options.forEach((el) => el.addEventListener("click", optionSelected));
 function addTodo(e) {
   e.preventDefault();
   const todoText = textVal.value;
+  if (!todoText) return;
 
-  const html = `<li class="todo-item">
+  const html = `<li id = ${todoText} class="todo-item" draggable = "true" ondragstart="drag(event)"  ondragover = "allowDrop(event)" ondrop = "drop(event)">
   <div class="todo-text-cont">
     <div class="circle">
-      <img class="check" src="./images/icon-check.svg" />
+      <img class="check" src="./images/icon-check.svg" alt="check icon" />
     </div>
-    <p class="todo-text">${todoText}</p>
+    <p class="todo-text" >${todoText}</p>
   </div>
 
-  <img class="cross" src="./images/icon-cross.svg" />
+  <img class="cross" src="./images/icon-cross.svg" alt="cross icon " />
 </li>`;
 
   todoList.insertAdjacentHTML("beforeend", html);
@@ -126,4 +127,43 @@ function filterItems(id) {
       }
     }
   }
+}
+
+function drag(e) {
+  e.dataTransfer.setData("text", e.target.id);
+}
+
+function allowDrop(e) {
+  e.preventDefault();
+}
+
+function drop(e) {
+  const data = e.dataTransfer.getData("text");
+  const targetElement = document.getElementById(data);
+  const afterElement = getDragAfterElement(targetElement, e.clientY);
+
+  if (afterElement == null) {
+    todoList.appendChild(targetElement);
+  } else {
+    todoList.insertBefore(targetElement, afterElement);
+  }
+}
+
+function getDragAfterElement(targetEl, y) {
+  const draggableElements = [...todoList.querySelectorAll(".todo-item")].filter(
+    (el) => el.id != targetEl.id
+  );
+
+  return draggableElements.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
 }
